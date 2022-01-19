@@ -1,13 +1,18 @@
 package factorial
 
 import scala.annotation.tailrec
+import scala.jdk.Accumulator
 
 object FactTailRec extends App {
-  def factorial(num: Int): Int =
-    @tailrec
-    def factHelper(num: Int, acc: Int): Int =
-      if (num <= 1) acc
-      else factHelper(num - 1, acc * num)
 
-    factHelper(num, 1)
+  def tailRecursiveFactorial(integerInput: Int): Int =
+    @tailrec
+    def factorailHelper(integerInput: Int, accumulator: Int): Int =
+      if (integerInput.abs <= 1) accumulator
+      else factorailHelper(integerInput.abs - 1, accumulator * integerInput)
+
+    factorailHelper(integerInput, 1)
+
+  println(tailRecursiveFactorial(-5))
 }
+
